@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flying Ticket Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 700px; /* Restrict the height to 700px */
+      background: linear-gradient(to bottom right, #007bff, #00c6ff);
+    }
+
+    .container {
+      width: 1800px; /* Restrict the width to 1800px */
+      height: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .ticket-form {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 50%; /* Scale the form to fit nicely */
+      max-width: 600px; /* Make it responsive */
+    }
+
+    .ticket-form h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #007bff;
+      font-size: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .form-group button {
+      width: 100%;
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-group button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="ticket-form">
+      <h2>Flying Ticket</h2>
+      <form id="ticketForm">
+        <!-- Flying From -->
+        <div class="form-group">
+          <label for="fromCountry">Flying From</label>
+          <input type="text" id="fromCountry" name="fromCountry" placeholder="Enter departure country" required />
+        </div>
+
+        <!-- Destination -->
+        <div class="form-group">
+          <label for="toCountry">Flying To</label>
+          <input type="text" id="toCountry" name="toCountry" placeholder="Enter destination country" required />
+        </div>
+
+        <!-- Currency -->
+        <div class="form-group">
+          <label for="currency">Currency</label>
+          <select id="currency" name="currency" required>
+            <option value="USD">USD - US Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - British Pound</option>
+            <option value="JPY">JPY - Japanese Yen</option>
+          </select>
+        </div>
+
+        <!-- Number of Passengers -->
+        <div class="form-group">
+          <label for="passengers">Number of Passengers</label>
+          <input type="number" id="passengers" name="passengers" min="1" placeholder="Enter number" required />
+        </div>
+
+        <!-- Date -->
+        <div class="form-group">
+          <label for="date">Travel Date</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+          <button type="button" onclick="submitForm()">Book Now</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Handle form submission
+    function submitForm() {
+      const fromCountry = document.getElementById("fromCountry").value;
+      const toCountry = document.getElementById("toCountry").value;
+      const currency = document.getElementById("currency").value;
+      const passengers = document.getElementById("passengers").value;
+      const date = document.getElementById("date").value;
+
+      if (fromCountry && toCountry && currency && passengers && date) {
+        alert(
+          `Ticket Booked!\n\nFlying From: ${fromCountry}\nFlying To: ${toCountry}\nCurrency: ${currency}\nPassengers: ${passengers}\nDate: ${date}`
+        );
+      } else {
+        alert("Please fill out all fields.");
+      }
+    }
+  </script>
+</body>
+</html>
