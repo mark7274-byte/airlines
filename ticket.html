@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flying Ticket Form</title>
+  <title>Ticket Form - SkyHigh Airlines</title>
+  <link rel="icon" href="airlines.png" type="image/png">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -148,6 +149,27 @@
         alert("Please fill out all fields.");
       }
     }
+    const cities = ["New York", "Los Angeles", "Chicago", "San Francisco", "Miami", "Houston", "Dallas", "Boston", "Seattle", "Denver", "Austin"];
+        const searchInput = document.getElementById("search");
+        const cityList = document.getElementById("city-list");
+
+        searchInput.addEventListener("input", function() {
+            const query = searchInput.value.toLowerCase();
+            cityList.innerHTML = ""; // Clear previous results
+
+            if (query) {
+                const filteredCities = cities.filter(city => city.toLowerCase().includes(query));
+                filteredCities.forEach(city => {
+                    const li = document.createElement("li");
+                    li.textContent = city;
+                    li.addEventListener("click", function() {
+                        searchInput.value = city; // Set input value to clicked city
+                        cityList.innerHTML = ""; // Clear list after selection
+                    });
+                    cityList.appendChild(li);
+                });
+            }
+        });
   </script>
 </body>
 </html>

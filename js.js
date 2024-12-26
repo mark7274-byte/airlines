@@ -3,7 +3,6 @@ function toggleDropdown() {
     dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
   }
 
-  // Close dropdown if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.dropdown-btn')) {
       const dropdowns = document.getElementsByClassName("dropdown-content");
@@ -44,6 +43,3 @@ function toggleDropdown() {
       currentSlide = (currentSlide + 1) % totalSlides; // Cycle through slides
       moveToSlide(currentSlide);
   }, 5000);
-  
-  // Initial slide
-  moveToSlide(currentSlide);

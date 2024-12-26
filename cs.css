@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
   }
+  html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -53,6 +56,14 @@ header img {
     height: 50px; /* Adjust the logo height */
     width: auto;
 }
+#blu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    background-color: #0078D7;
+    width: 100%;
+    height: 12px;
+}
 .hero {
     position: relative;
     color: white;
@@ -65,7 +76,7 @@ header img {
     overflow: hidden;
 }
 .background {
-     position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
     background-image: url(background.jpg);
@@ -92,10 +103,16 @@ header img {
 }
 .slider {
     position: relative;
-    height: 60vh;
+    height: 41vh;
     overflow: hidden;
 }
-
+.slider h1 {
+    padding-top: 10px;
+    font-size: 36px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+}
 .slider-container {
     display: flex;
     width: 100%;
@@ -190,7 +207,40 @@ header img {
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-
+.news-section {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Adds a semi-transparent white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.news-section h1 {
+    text-align: center;
+    color: #0056b3;
+}
+.news-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.news-item:last-child {
+    border-bottom: none;
+}
+.news-item h2 {
+    font-size: 24px;
+    color: #0056b3;
+}
+.news-item p {
+    margin: 10px 0;
+}
+.news-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+.news-item a:hover {
+    text-decoration: underline;
+}
 .overlay {
     position: absolute;
     top: 0;
@@ -215,6 +265,17 @@ header img {
 .overlay p {
     font-size: 1.2rem;
 }
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    position: relative;
+}
+footer  a {
+    color: inherit; /* The link inherits the color of the parent (in this case, <p>) */
+    text-decoration: none; /* Optional: removes underline */
+}
 /* Animations */
 @keyframes fadeIn {
     from {
@@ -225,12 +286,6 @@ header img {
         opacity: 1;
         transform: scale(1);
     }
-}
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
 }
 @media (max-width: 768px) {
     .header .logo h1 {
